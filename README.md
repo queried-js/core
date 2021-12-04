@@ -4,8 +4,8 @@
     <h1>@Queried/Core</h1>
   </p>
   <p>
-    Abstract TypeScript template engine.<br />
-    Custom <b>Query Executers</b>, and custom <b>Serializers</b>/<b>Deserializers</b>, store same data in many different ways! 🗃️
+    Abstract TypeScript database driver.<br />
+    With custom <b>Query Executers</b>, <b>Serializers</b> and <b>Deserializers</b>, store same data in many different ways! 🗃️
   </p>
   <p>
     <img alt="Package name badge" src="https://img.shields.io/github/package-json/name/queried-js/core">
@@ -32,7 +32,7 @@
 
 ## Overview
 
-**Queried** is an abstract database driver. You can define your own data strategy query executer with custom **Data Type**, and seprate it from your **Data Model** with the help of serialization.
+**Queried** is an abstract database driver. You can define your own data strategy query executer with custom **Data Type**, and separate it from your **Data Model** with the serialization.
 
 ## Documentations
 
