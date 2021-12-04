@@ -16,6 +16,14 @@
 
 ---
 
+## **0.3.0** - 2021-12-04
+
+### Added
+
+-   Serializers and Deserializers
+
+---
+
 ## **0.2.1** - 2021-12-04
 
 ### Added

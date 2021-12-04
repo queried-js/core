@@ -6,21 +6,22 @@ import { existsSync } from 'fs';
 
 import { Queried } from '../dist';
 
-const executer: QueryExecuter<
-	{
-		path: string;
-		type: 'write' | 'read' | 'remove';
-	},
-	string
-> = async (query, data) => {
+type Query = {
+	path: string;
+	type: 'write' | 'read' | 'remove';
+};
+
+type DataType = { [key: string]: string };
+
+const executer: QueryExecuter<Query, string> = async (query, ...data) => {
 	const path = resolve(__dirname, query.path);
 	switch (query.type) {
 		case 'write': {
-			await writeFile(path, data);
+			await writeFile(path, data.join(''));
 			return;
 		}
 		case 'read':
-			return await readFile(path, 'utf-8');
+			return [await readFile(path, 'utf-8')];
 		case 'remove': {
 			await unlink(path);
 			return;
@@ -29,9 +30,13 @@ const executer: QueryExecuter<
 };
 
 const path = 'store.db';
-const data = 'TEST-DATA';
+const data = { content: 'test-data' };
 
-const queried = new Queried({ executer });
+const queried = new Queried<DataType, Query, string>({
+	executer,
+	serializer: JSON.stringify,
+	deserializer: JSON.parse,
+});
 
 test('execute write query', async () => {
 	await queried.execute({ path, type: 'write' }, data);
@@ -39,9 +44,11 @@ test('execute write query', async () => {
 });
 
 test('execute read query', async () =>
-	expect(await queried.execute({ path, type: 'read' }, data)).toBe(data));
+	expect(await queried.execute({ path, type: 'read' })).toStrictEqual([
+		data,
+	]));
 
 test('execute remove query', async () => {
-	await queried.execute({ path, type: 'remove' }, data);
+	await queried.execute({ path, type: 'remove' });
 	expect(existsSync(resolve(__dirname, path))).toBeFalsy();
 });
