@@ -16,6 +16,15 @@
 
 ---
 
+## **0.2.1** - 2021-12-04
+
+### Added
+
+-   Constructor
+-   Constructor Configuration
+
+---
+
 ## **0.2.0** - 2021-12-04
 
 ### Added
