@@ -25,12 +25,17 @@
 ## Table of Contents
 
 -   [Overview](#overview)
+-   [Version History](#version-history)
 -   [Contributing](#contributing)
 -   [License](#license)
 
 ## Overview
 
 **Queried** is an abstract database driver. You can define your own data strategy query executer with custom **Data Type**, and seprate it from your **Data Model** with the help of serialization.
+
+## Version History
+
+Please refer to [Changelog](CHANGELOG.md)
 
 ## Contributing
 
