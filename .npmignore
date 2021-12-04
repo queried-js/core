@@ -1,7 +1,10 @@
+
 .gitignore
 .npmignore
 
+babel.config.json
 tsconfig.json
 
 src
+docs
 test
