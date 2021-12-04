@@ -1,0 +1,28 @@
+{
+	"name": "@queried/core",
+	"version": "0.0.1",
+	"description": "Abstract TypeScript application framework",
+	"keywords": [
+		"typescript",
+		"javascript",
+		"abstract",
+		"modular",
+		"data",
+		"database",
+		"query",
+		"io",
+		"async"
+	],
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"license": "MIT",
+	"author": "https://github.com/queried-js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/queried-js/core.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
